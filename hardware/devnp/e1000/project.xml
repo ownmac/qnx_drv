@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<module name="devnp-e1000">
+  <classification>Driver</classification>
+  <description>
+    <short>Driver for all current Intel Gigabit Ethernet controllers</short>
+    <abstract><![CDATA[
+                        The devnp-e1000.so driver controls all current Intel Gigabit Ethernet adapters.
+                ]]></abstract>
+  </description>
+  <supports>
+    <availability>
+      <os name="nto">
+        <cpu isa="ppc">
+          <byteOrder>be</byteOrder>
+          <byteOrder>be.spe</byteOrder>
+        </cpu>
+        <cpu isa="sh">
+          <byteOrder>le</byteOrder>
+        </cpu>
+        <cpu isa="arm">
+          <byteOrder>le</byteOrder>
+          <byteOrder>le.v7</byteOrder>
+        </cpu>
+        <cpu isa="x86"/>
+        <cpu isa="mips">
+          <byteOrder>le</byteOrder>
+          <byteOrder>be</byteOrder>
+        </cpu>
+      </os>
+    </availability>
+  </supports>
+  <contents>
+    <component id="e1000" generated="true">
+      <location basedir="ppc/dll.be">devnp-e1000.so</location>
+      <location basedir="ppc/dll.be.spe">devnp-e1000.so</location>
+      <location basedir="sh/dll.le">devnp-e1000.so</location>
+      <location basedir="arm/dll.le">devnp-e1000.so</location>
+      <location basedir="arm/dll.le.v7">devnp-e1000.so</location>
+      <location basedir="x86/dll">devnp-e1000.so</location>
+      <location basedir="mips/dll.le">devnp-e1000.so</location>
+      <location basedir="mips/dll.be">devnp-e1000.so</location>
+    </component>
+  </contents>
+  <requires>
+    <part build="true" location="lib/drvr"/>
+  </requires>
+</module>

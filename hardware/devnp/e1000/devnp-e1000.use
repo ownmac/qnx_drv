@@ -1,0 +1,41 @@
+%C Driver for Intel Gigabit Ethernet controllers
+
+Supported devices:
+  All current Intel Gigabit devices
+
+Syntax:
+  io-pkt-v4 -d e1000 [option[,option ...]] ... &
+
+Options
+  did                Only detect devices with this specific PCI Device ID
+  duplex=[0|1]       Set link duplex (0 = half, 1 = full).
+  force_link         Force the link speed/duplex. The default is to
+                     autonegotiate the advertised speed/duplex.
+  int_mod=N          Interrupt moderation value (default 20000) interrupts/sec.
+                     A value of zero disables interrupt moderation.
+  irq=N              Hardware interrupt to attach to (default autodetect).
+  mac=XXXXXXXXXXXX   Override MAC address of the controller. 
+  max_read=N         Maximum PCIe read request size.
+                     128, 256, 512, 1024, 2048 or 4096 bytes.
+  mtu=N              Maximum transmission unit (default 1514).
+  nomulticast        Disable multicast support.
+  pauseignore        Ignore pause frames wrt full duplex flow control
+  pausesuppress      Suppress pause frames wrt full duplex flow control
+  pci=N              Only detect devices at this specific PCI Index
+  priority=N         Priority of driver's event handler thread (default 21).
+  promiscuous        Enable reception of all packets.
+  receive=N          Number of receive descriptors (default 512 - maximum 4096).
+  speed=N            Set link speed (specified in Mbits/second).
+  transmit=N         Number of transmit descriptors (default/maximum 4096).
+  tx_reap=N          Maximum number of transmit descriptors to reap (default 64).
+  verbose            Be verbose.
+  vid                Only detect devices with this specific PCI Vendor ID
+
+Note: if the duplex is specified via the "duplex" option, you should
+also specify the speed using the "speed" option.
+
+Examples:
+  # Start io-pkt using the devnp-e1000.so driver and the full TCP/IP stack: 
+  io-pkt-v4 -de1000
+  ifconfig wm0 192.168.0.10
+

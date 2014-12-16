@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<module name="devnp-e1000">
+	<type>Element</type>
+	<classification>Driver</classification>
+
+	 <description>
+                <short>Driver for all current Intel Gigabit Ethernet controllers</short>
+                <abstract>
+                        <![CDATA[The devnp-e1000.so driver controls all current Intel Gigabit Ethernet adapters.]]>
+                </abstract>
+    </description>
+        
+	<supports>
+		<availability ref="ostargets"/>
+	</supports>
+
+	<source available="false">
+		<location type="">.</location>
+	</source>
+
+	<GroupOwner>net</GroupOwner>
+
+	<contents>
+		<component id="e1000" generated="true">
+			<location basedir="{cpu}/dll{.:endian}"
+				 runtime="true">devnp-e1000.so</location>
+		</component>
+	</contents>
+
+	<requires>
+		<part build="true" location="lib/drvr"/>
+	</requires>
+
+</module>
